@@ -8,6 +8,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
+#include <stdlib.h>
+
 
 /**@brief  localtime函数
  *@param   digit 需要获取随机数的位数,范围1-4
@@ -22,7 +24,7 @@ int get_random_num(int digit)
 	int num;
 	struct timespec time_struct_with_ns;
 	clock_gettime(CLOCK_REALTIME,&time_struct_with_ns);
-
+	printf("ns=%ld\r\n",time_struct_with_ns.tv_nsec);
 	switch(digit)
 	{
 		case 1:return time_struct_with_ns.tv_nsec%10;
@@ -40,9 +42,15 @@ int get_random_num(int digit)
 }
 
 
-int main(void)
+int main(int argc,char *argv[])
 {
 	int num;
-	get_random_num(2);
+	if(argc!=2)
+	{
+		printf("usage ./a.out <param>");
+		exit(-1);
+	}
+
+	num=get_random_num(strtoul(argv[1],NULL,10));
 	printf("%d\r\n",num);
 }
