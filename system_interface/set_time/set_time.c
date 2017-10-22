@@ -23,9 +23,10 @@ time_t mktime (struct tm *__tp);
  * @param  __tz  struct timezone时区区分信息，中国北京时间的时区为东八区
  * @return  0-成功，-1-失败
  * @note  这个函数的执行必须得有root权限，普通用户的权限不能执行这个函数
+ * @note  这个函数只是暂时改了系统时间，而没有该cmos时间，所以重启之后修改的时间会失效
  */
 int settimeofday (const struct timeval *__tv,
-			 const struct timezone *__tz)；
+			 const struct timezone *__tz);
 
 /**@brief  设置系统时间
  * @bote  先生成时间戳，然后再调用settimeofday设置时间
@@ -44,9 +45,9 @@ int main(void)
 
 	struct tm time_real;
 
-	time_real.tm_hour=15;
+	time_real.tm_hour=16;
 	time_real.tm_mday=22;
-	time_real.tm_min=33;
+	time_real.tm_min=25;
 	time_real.tm_mon=9;
 	time_real.tm_sec=0;
 	time_real.tm_year=117;

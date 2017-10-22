@@ -17,6 +17,7 @@
 /**@brief  文件编程中的open函数
  *@param   __file  第一个参数为文件路径，
  *@param   __oflag  第二个参数为打开标志，值得一提的是，当标志位设置了O_CREAT位时，当文件不存在时就会创建文件，这时需要填入第三个参数，文件操作权限，例如：0777
+ *@note   O_APPEND 为追加写，O_RDWR  可读可写打开  O_RDONLY 只读打开  O_WRNOLY  只写打开
  */
 int open (const char *__file, int __oflag, ...);
 /**@brief  文件编程中的read函数
