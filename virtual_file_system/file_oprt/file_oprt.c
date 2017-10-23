@@ -44,6 +44,7 @@ __off_t lseek (int __fd, __off_t __offset, int __whence)；
 
 
 
+
 int main(int argc,char *argv[])
 {
 	int fd=0;
