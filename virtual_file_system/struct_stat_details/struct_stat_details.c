@@ -1,5 +1,5 @@
 /**@file   struct_stat_details.c
- * @brief  文件(目录)的结构体信息中权限位详解
+ * @brief  文件(目录)的结构体信息中权限位详解2465
  * @author dtston-downey
  * @date   2017/10/20
  * @version  1.0.0
@@ -25,6 +25,9 @@ int main(void)
 	printf("last modifi time=%d\r\n",stat_buf.st_mtim.tv_sec);   //u32类型变量,最后修改的时间
 
 	printf("st_mode=%d\r\n",stat_buf.st_mode);  //文件的各种性质
+
+	printf("st_blksize=%d\r\n",stat_buf.st_blksize);
+
 
 	return 0;
 }
